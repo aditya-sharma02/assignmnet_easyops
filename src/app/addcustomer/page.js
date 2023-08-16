@@ -11,14 +11,6 @@ const Page = () => {
         phoneno: ""
     })
     const dispatch = useDispatch();
-    
-    const handlechange = (e) => {
-        setdata((preval) => {
-            return {
-                ...preval, [e.target.name]: e.target.value
-            }
-        })
-    }
     const submit = (e) => {
         e.preventDefault();
         if (!data.email.includes("@") || data.email.length <= 5) {
@@ -40,6 +32,14 @@ const Page = () => {
             })
         }
     }
+    const handlechange = (e) => {
+        setdata((preval) => {
+            return {
+                ...preval, [e.target.name]: e.target.value
+            }
+        })
+    }
+
     return (
         <>
             <Navbar />
