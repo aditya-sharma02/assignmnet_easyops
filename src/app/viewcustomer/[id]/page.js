@@ -11,60 +11,42 @@ const Page = ({ params }) => {
     const dispatch = useDispatch();
     const { push } = useRouter();
     const state = useSelector((state) => state.customer)
-    if (!state[params.id]) {
-        return (
-            <>
-                <Navbar />
-                <div className={styles.body}>
-                    <div className={styles.message}>
-                        Invalid url 
-                    </div>
-                    <div className={styles.des}>
-                        Please Add Customers first
-                    </div>
-
-                </div>
-            </>
-        )
-    } else {
-
-
-        const [data, setdata] = useState({
-            name: state[params.id].name,
-            email: state[params.id].email,
-            phoneno: state[params.id].phoneno
+    const [data, setdata] = useState({
+        name: state[params.id].name,
+        email: state[params.id].email,
+        phoneno: state[params.id].phoneno
+    })
+    const handlechange = (e) => {
+        setdata((preval) => {
+            return {
+                ...preval, [e.target.name]: e.target.value
+            }
         })
-        const handlechange = (e) => {
-            setdata((preval) => {
-                return {
-                    ...preval, [e.target.name]: e.target.value
-                }
+    }
+    const submit = (e) => {
+        e.preventDefault();
+        if (
+            !data.email.includes("@") ||
+            data.name.length < 5 ||
+            data.phoneno.length != 10
+        ) {
+            console.log("problem occurs")
+        }
+        else {
+            const id = params.id;
+            dispatch(updateCustomer({ data, id }));
+            setdata({
+                name: "",
+                email: "",
+                phoneno: 0
             })
+            push('/viewcustomer');
         }
-        const submit = (e) => {
-            e.preventDefault();
-            if (
-                !data.email.includes("@") ||
-                data.name.length < 5 ||
-                data.phoneno.length != 10
-            ) {
-                console.log("problem occurs")
-            }
-            else {
-                const id = params.id;
-                dispatch(updateCustomer({ data, id }));
-                setdata({
-                    name: "",
-                    email: "",
-                    phoneno: 0
-                })
-                push('/viewcustomer');
-            }
-        }
-        return (
-            <>
-                <Navbar />
-                {/* <form>
+    }
+    return (
+        <>
+            <Navbar />
+            {/* <form>
                 <input type="text" placeholder="name" name="name" value={data.name} onChange={handlechange}
                 />
                 <input type="email" placeholder="email" name="email" value={data.email} onChange={handlechange}
@@ -74,22 +56,21 @@ const Page = ({ params }) => {
                 <button type="submit" onClick={submit}>Submit</button>
             </form> */}
 
-                <div className={styles.main}>
-                    <form>
-                        <input className={styles.inp} type="text" placeholder="name" name="name" value={data.name} required onChange={handlechange}
-                        />
-                        <br />
-                        <input className={styles.inp} type="email" placeholder="email" name="email" value={data.email} required onChange={handlechange}
-                        />
-                        <br />
-                        <input className={styles.inp} type="text" placeholder="Phone Number" name="phoneno" required value={data.phoneno} onChange={handlechange}
-                        />
-                        <br />
-                        <button className={styles.button} type="submit" onClick={submit}>Submit</button>
-                    </form>
-                </div>
-            </>
-        )
-    }
+            <div className={styles.main}>
+                <form>
+                    <input className={styles.inp} type="text" placeholder="name" name="name" value={data.name} required onChange={handlechange}
+                    />
+                    <br />
+                    <input className={styles.inp} type="email" placeholder="email" name="email" value={data.email} required onChange={handlechange}
+                    />
+                    <br />
+                    <input className={styles.inp} type="text" placeholder="Phone Number" name="phoneno" required value={data.phoneno} onChange={handlechange}
+                    />
+                    <br />
+                    <button className={styles.button} type="submit" onClick={submit}>Submit</button>
+                </form>
+            </div>
+        </>
+    )
 }
 export default Page;
