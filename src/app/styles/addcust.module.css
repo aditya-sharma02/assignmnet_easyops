@@ -1,0 +1,49 @@
+.main{
+    height: 80vh;
+    width: 99vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inp{
+    width: 35vw;
+    height: auto;
+    padding: 2px 10px;
+    border-radius: 10px;
+    font-size: xx-large;
+    text-transform: capitalize;
+    margin: 3vh auto;
+    background-color: rgb(248, 199, 109);
+    color: black;
+}
+.button{
+    padding: 5px 10px;
+    font-size: xx-large;
+    background-color: rgba(247, 92, 9, 0.749);
+    letter-spacing: 2px;
+    border-radius: 10px;    
+}
+
+.body{
+    height: 80vh;
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.message{
+    text-transform: capitalize;
+    font-size: 50px;
+    color: rgb(250, 68, 68);
+}
+.des{
+    text-transform: capitalize;
+    font-size: 50px;
+    color: gray;
+}
+@media screen and (max-width: 600px) {
+    .inp{
+        width: 70vw;
+    }
+}

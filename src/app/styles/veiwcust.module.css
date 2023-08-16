@@ -1,0 +1,73 @@
+.main {
+    height: 80vh;
+    width: 99vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sorry {
+    font-size: 90px;
+    color: white;
+}
+
+.mess {
+    font-size: 50px;
+    color: gray;
+}
+
+.cards {
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* font-size: xx-large; */
+
+}
+
+.card {
+    height: 25vh;
+    width: 25vw;
+    background-color: rgb(226, 158, 56);
+    border-radius: 15px;
+    padding: 10px 20px;
+    position: relative;
+    margin: 3vh;
+}
+
+.name {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-bottom: 30px;
+}
+
+.email {
+
+    font-size: x-large;
+}
+
+.editbtn,
+.delbtn {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    background-color: rgb(227, 107, 9);
+    width: 8vh;
+    height: 8vh;
+    border-radius: 50%;
+    font-size: 50px;
+    border: none;
+}
+
+.delbtn {
+    left: 0%;
+}
+
+@media screen and (max-width: 600px) {
+    .card{
+        width: 70vw;
+    }
+}
