@@ -5,12 +5,13 @@ import { useDispatch } from "react-redux";
 import { addCustomer } from "../store/slice/dataSlice";
 import styles from "../styles/addcust.module.css"
 const Page = () => {
-    const dispatch = useDispatch();
     const [data, setdata] = useState({
         name: "",
         email: "",
         phoneno: ""
     })
+    const dispatch = useDispatch();
+    
     const handlechange = (e) => {
         setdata((preval) => {
             return {

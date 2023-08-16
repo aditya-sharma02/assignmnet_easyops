@@ -8,14 +8,15 @@ import styles from "@/app/styles/addcust.module.css"
 
 
 const Page = ({ params }) => {
-    const dispatch = useDispatch();
-    const { push } = useRouter();
-    const state = useSelector((state) => state.customer)
     const [data, setdata] = useState({
         name: state[params.id].name,
         email: state[params.id].email,
         phoneno: state[params.id].phoneno
     })
+    const dispatch = useDispatch();
+    const { push } = useRouter();
+    const state = useSelector((state) => state.customer)
+    
     const handlechange = (e) => {
         setdata((preval) => {
             return {
