@@ -34,7 +34,7 @@ const Page = ({ params }) => {
             setdata({
                 name: "",
                 email: "",
-                phoneno: 0
+                phoneno: ""
             })
             push('/viewcustomer');
         }
