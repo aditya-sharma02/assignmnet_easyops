@@ -26,16 +26,16 @@ const Page = ({ params }) => {
     }
     const submit = (e) => {
         e.preventDefault();
-        // if (!data.email.includes("@") || data.email.length <= 5) {
-        //     alert("Email Invalid !!!!")
-        // }
-        // else if (data.name.length < 5 || data.name.length == 0) {
-        //     alert("Please Enter Full name")
-        // }
-        // else if (data.phoneno.length != 10) {
-        //     alert("Phone Number must be of 10 digits")
-        // }
-        // else {
+        if (!data.email.includes("@") || data.email.length <= 5) {
+            alert("Email Invalid !!!!")
+        }
+        else if (data.name.length < 5 || data.name.length == 0) {
+            alert("Please Enter Full name")
+        }
+        else if (data.phoneno.length != 10) {
+            alert("Phone Number must be of 10 digits")
+        }
+        else {
             const id = params.id;
             dispatch(updateCustomer({ data, id }));
             setdata({
@@ -44,7 +44,7 @@ const Page = ({ params }) => {
                 phoneno: 0
             })
             push('/viewcustomer');
-        // }
+        }
     }
     return (
         <>
