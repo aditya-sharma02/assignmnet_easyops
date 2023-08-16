@@ -9,7 +9,7 @@ import styles from "@/app/styles/addcust.module.css"
 
 const Page = ({ params }) => {
     const state = useSelector((state) => state.customer)
-F
+    F
     const [data, setdata] = useState({
         name: state[params.id].name,
         email: state[params.id].email,
@@ -17,14 +17,6 @@ F
     })
     const dispatch = useDispatch();
     const { push } = useRouter();
-
-    const handlechange = (e) => {
-        setdata((preval) => {
-            return {
-                ...preval, [e.target.name]: e.target.value
-            }
-        })
-    }
     const submit = (e) => {
         e.preventDefault();
         if (!data.email.includes("@") || data.email.length <= 5) {
@@ -47,6 +39,14 @@ F
             push('/viewcustomer');
         }
     }
+    const handlechange = (e) => {
+        setdata((preval) => {
+            return {
+                ...preval, [e.target.name]: e.target.value
+            }
+        })
+    }
+
     return (
         <>
             <Navbar />
